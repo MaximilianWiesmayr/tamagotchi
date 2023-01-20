@@ -11,6 +11,7 @@ public class Tamagotchi extends JFrame implements Components {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(700,700);
         setResizable(false);
+        add(statusPanel, java.awt.BorderLayout.NORTH);  //statusPanel from Components
         setVisible(true);
     }
 
