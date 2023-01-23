@@ -13,6 +13,7 @@ public class Tamagotchi extends JFrame implements Components {
         setResizable(false);
         add(statusPanel, BorderLayout.NORTH);  //statusPanel from Components
         add(gamePanel, BorderLayout.CENTER); // from Components
+        add(bottomPanel, BorderLayout.SOUTH);
         setVisible(true);
     }
 
