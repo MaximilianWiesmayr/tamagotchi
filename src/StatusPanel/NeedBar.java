@@ -21,14 +21,8 @@ public class NeedBar extends JProgressBar implements Globals, ChangeListener {
         setForeground(COLOR_BAR_FG_GOOD);
         setBackground(COLOR_BAR_BG);
         setBorder(BorderFactory.createLineBorder(black, 1, true));
-        
-        //loosing percentage over time (if no game is played)
-        timer = new Timer(100, new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                loosePercentage(1);
-            }
-        });
-        timer.start();
+
+        startTimer();
     }
 
     /**
@@ -43,8 +37,36 @@ public class NeedBar extends JProgressBar implements Globals, ChangeListener {
         else if(this.getValue() <= 30 && this.getValue() > 10) setForeground(COLOR_BAR_FG_BAD);
         else if(this.getValue() <= 10) setForeground(COLOR_BAR_FG_WORSE);
     }
+
+    private void startTimer(){
+        //loosing percentage over time
+        timer = new Timer(SLOW, new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                loosePercentage(1);
+            }
+        });
+        timer.start();
+        //barSpeed(SLOW);  // for testing different speeds
+    }
+
+    // changes speed of the decay of the bars
+    public void barSpeed(int delay){
+        if(delay == STOP){
+            timer.stop();
+        } else {
+            timer.stop();
+            timer.setDelay(delay);
+            timer.start();
+        }
+
+
+    }
     
     public void loosePercentage(int n){
         setValue(getValue()-n);     //n% are subtracted
+    }
+
+    public void jumpToValue(int percentage){
+        setValue(percentage);
     }
 }

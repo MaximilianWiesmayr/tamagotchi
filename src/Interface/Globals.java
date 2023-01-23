@@ -7,6 +7,11 @@ import static java.awt.Font.PLAIN;
 public interface Globals {
     String CREATURE_NORMAL = "";
     String CREATURE_DIRTY = "";
+
+    //NeedBar speeds
+    int SLOW = 2000;
+    int FAST = 1000;
+    int STOP = 0;
     
     Font LABEL_FONT = new Font("Arial", PLAIN, 12); 
     
