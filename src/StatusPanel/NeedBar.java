@@ -66,7 +66,7 @@ public class NeedBar extends JProgressBar implements Globals, ChangeListener {
         setValue(getValue()-n);     //n% are subtracted
     }
 
-    public void jumpToValue(int percentage){
-        setValue(percentage);
+    public void gainPercentage(int n){
+        setValue(getValue()+n);
     }
 }

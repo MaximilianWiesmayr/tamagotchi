@@ -50,4 +50,9 @@ public class Kitchen extends Room{
         // Note for updating the sprite
         // There is a redraw method where you can specify a box that is redrawn
     }
+
+    @Override
+    protected void startGame() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

@@ -15,31 +15,40 @@ public class Bathroom extends Room {
     private BufferedImage backgroundImage;
 
     public Bathroom() {
-         createBackground();
+        createBackground();
+        setCreature("img/images.jpg");
+        repaint();
     }
-    @Override
+      @Override
     public void createBackground() {
         try {
             backgroundImage = ImageIO.read(new File ("img/bathroom.jpg"));
         } catch (IOException ex) {
             System.out.println("Hallo");
         }
+        
     }
 
     @Override
     protected void setCreature(String path) {
-        creature = new Creature("img/images.jpg", 250, 250);
+        creature = new Creature(path, 250, 250);
     }
     
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-
-        creature.draw((Graphics2D) g);
+        
         //draw background image
         g.drawImage(backgroundImage, 0, 0, null);
+        
+         creature.draw((Graphics2D) g);
 
         // Note for updating the sprite
         // There is a redraw method where you can specify a box that is redrawn
+    }
+
+    @Override
+    protected void startGame() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

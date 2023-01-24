@@ -20,4 +20,8 @@ public interface Globals {
     Color COLOR_BAR_FG_GOOD = new Color(37, 201, 31);      //foreground color of bar
     Color COLOR_BAR_FG_BAD = new Color(216, 158, 41);
     Color COLOR_BAR_FG_WORSE = new Color(216, 70, 41);
+    
+    String DESCRIPTION_GAME_KITCHEN = "";
+    String DESCRIPTION_GAME_OUTDOOR = "";
+    String DESCRIPTION_GAME_BATHROOM = "";
 }
