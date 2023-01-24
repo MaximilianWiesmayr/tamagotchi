@@ -26,13 +26,13 @@ public class RoomButton extends JButton implements Globals, MouseListener, Compo
         //depending on the button, different room is created
         switch (name) {
             case "Kitchen":
-                Kitchen k = new Kitchen(gamePanel.getSprite());
+                gamePanel.setRoom(new Kitchen());
                 break;
             case "Bathroom":
-                Bathroom b = new Bathroom(gamePanel.getSprite());
+                gamePanel.setRoom(new Bathroom());
                 break;
             case "Outdoor":
-                Outdoor o = new Outdoor(gamePanel.getSprite());
+                gamePanel.setRoom(new Outdoor());
                 break;
         }
     }

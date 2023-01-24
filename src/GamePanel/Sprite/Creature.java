@@ -1,7 +1,7 @@
 package GamePanel.Sprite;
 
 public class Creature extends Sprite{
-    public Creature(int posX, int posY, String appearance){
+    public Creature(String appearance, int posX, int posY){
         super(appearance, posX, posY);
     }
 }

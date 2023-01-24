@@ -6,15 +6,14 @@ import Interface.Components;
 
 import javax.swing.*;
 
-public class Room extends JPanel implements Components{
-    Sprite creature;
+public abstract class Room extends JPanel implements Components{
 
-    public Room(Sprite creature){
-        this.creature = creature;
-        createBackground();
+    public Room(){
+       
     }
     //override method to change the backgroundimage
-    public void createBackground() {
-
-    }
+    abstract protected void createBackground();
+    
+    abstract protected void setCreature(String path);
+    
 }

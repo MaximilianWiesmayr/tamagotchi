@@ -1,3 +1,4 @@
+import GamePanel.Room.*;
 import Interface.Components;
 
 import javax.swing.*;
