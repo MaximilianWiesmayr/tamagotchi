@@ -6,9 +6,9 @@ import javax.swing.*;
 
 public class StatusPanel extends JPanel implements Globals {
     //3 NeedBars
-    private NeedBar cleanBar;
-    private NeedBar eatBar;
-    private NeedBar exerciseBar;
+    public NeedBar cleanBar;
+    public NeedBar eatBar;
+    public NeedBar exerciseBar;
     
     //3 Panels - for each Bar 1
     private JPanel cleanPanel;

@@ -16,6 +16,7 @@ public abstract class Room extends JPanel implements Components{
     
     abstract protected void setCreature(String path);
     
-    abstract protected void startGame();
-    
+    abstract public void startGame();
+
+    abstract public void stopGame();
 }

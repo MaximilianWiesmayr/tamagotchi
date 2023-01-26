@@ -8,6 +8,10 @@ public interface Globals {
     String CREATURE_NORMAL = "";
     String CREATURE_DIRTY = "";
 
+    String GAMEDESCRIPTION_KITCHEN = "Kitchengame";
+    String GAMEDESCRIPTION_BATHROOM = "Bathroomgame";
+    String GAMEDESCRIPTION_OUTDOOR = "Outdoorgame";
+
     //NeedBar speeds
     int SLOW = 2000;
     int FAST = 1000;

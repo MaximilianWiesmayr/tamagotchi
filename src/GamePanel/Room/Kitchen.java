@@ -52,7 +52,12 @@ public class Kitchen extends Room{
     }
 
     @Override
-    protected void startGame() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void startGame() {
+        System.out.println("started Kitchen game");
+    }
+
+    @Override
+    public void stopGame() {
+        System.out.println("stopped Kitchen game");
     }
 }

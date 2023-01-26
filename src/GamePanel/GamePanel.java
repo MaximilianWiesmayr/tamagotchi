@@ -13,17 +13,21 @@ public class GamePanel extends JPanel {
 
   
     private Room room;
+    private GameStartPanel gameStartPanel;
 
     public GamePanel() {
-        
         room = new Kitchen();
+        gameStartPanel = new GameStartPanel(room);
+
         this.setLayout(new BorderLayout());
+        add(gameStartPanel, BorderLayout.SOUTH);
         add(room, BorderLayout.CENTER);
         
     }
 
     public void setRoom(Room room) {
-        this.remove(this.room);
+        remove(this.room);
+        gameStartPanel.changeRoom(room);
         this.room = room;
         add(this.room, BorderLayout.CENTER);
         revalidate();

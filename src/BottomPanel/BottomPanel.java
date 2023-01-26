@@ -9,9 +9,9 @@ import javax.swing.JProgressBar;
 
 public class BottomPanel extends JPanel {
 
-    private RoomButton bathroomButton;
-    private RoomButton kitchenButton;
-    private RoomButton outdoorButton;
+    public RoomButton bathroomButton;
+    public RoomButton kitchenButton;
+    public RoomButton outdoorButton;
 
     //3 Panels - for each button
     private JPanel bathroomPanel;

@@ -4,10 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4d8472f-5737-4c7c-9570-f7f75129a590" name="Changes" comment="setup project">
+    <list default="true" id="a4d8472f-5737-4c7c-9570-f7f75129a590" name="Changes" comment="added function to change bar decay speed&#10;added function to jump to specific percentage Value for future functionalities">
+      <change afterPath="$PROJECT_DIR$/src/GamePanel/GameStartPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BottomPanel/BottomPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BottomPanel/BottomPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GamePanel/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GamePanel/Room/Bathroom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel/Room/Bathroom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GamePanel/Room/Kitchen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel/Room/Kitchen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GamePanel/Room/Outdoor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel/Room/Outdoor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GamePanel/Room/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel/Room/Room.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interface/Globals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/Globals.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StatusPanel/NeedBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StatusPanel/NeedBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StatusPanel/StatusPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StatusPanel/StatusPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +93,9 @@
       <option name="presentableId" value="Default" />
       <updated>1674117922388</updated>
       <workItem from="1674117924567" duration="19560000" />
-      <workItem from="1674475820002" duration="5141000" />
+      <workItem from="1674475820002" duration="6280000" />
+      <workItem from="1674551848483" duration="3427000" />
+      <workItem from="1674678282616" duration="12133000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1674118044572</created>
@@ -102,7 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674139500389</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added function to change bar decay speed&#10;added function to jump to specific percentage Value for future functionalities">
+      <created>1674497395307</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1674497395307</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,6 +138,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init commit" />
     <MESSAGE value="setup project" />
-    <option name="LAST_COMMIT_MESSAGE" value="setup project" />
+    <MESSAGE value="added function to change bar decay speed&#10;added function to jump to specific percentage Value for future functionalities" />
+    <option name="LAST_COMMIT_MESSAGE" value="added function to change bar decay speed&#10;added function to jump to specific percentage Value for future functionalities" />
   </component>
 </project>

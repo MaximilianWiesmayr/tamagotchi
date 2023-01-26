@@ -48,7 +48,12 @@ public class Bathroom extends Room {
     }
 
     @Override
-    protected void startGame() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void startGame() {
+        System.out.println("started Bathroom game");
+    }
+
+    @Override
+    public void stopGame() {
+        System.out.println("stopped Bathroom game");
     }
 }
