@@ -32,14 +32,14 @@ public class StatusPanel extends JPanel implements Globals {
         this.add(exercisePanel);
     }
     
-    //Creates a Panel which includes the LabelText and the PrgressBar (NeedBar)
+    //Creates a Panel which includes the LabelText and the ProgressBar (NeedBar)
     private JPanel createPanel(String labelText, JProgressBar bar){
         JPanel panel = new JPanel();
         JLabel label = new JLabel(labelText);
-        label.setFont(LABEL_FONT);
+        label.setFont(LABEL_FONT_STATUSPANEL);
         panel.add(label);
         panel.add(bar);
         return panel;
     }
-            
+
 }

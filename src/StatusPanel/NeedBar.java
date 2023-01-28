@@ -50,7 +50,7 @@ public class NeedBar extends JProgressBar implements Globals, ChangeListener {
     }
 
     // changes speed of the decay of the bars
-    public void barSpeed(int delay){
+    public void setBarSpeed(int delay){
         if(delay == STOP){
             timer.stop();
         } else {
@@ -58,8 +58,6 @@ public class NeedBar extends JProgressBar implements Globals, ChangeListener {
             timer.setDelay(delay);
             timer.start();
         }
-
-
     }
     
     public void loosePercentage(int n){

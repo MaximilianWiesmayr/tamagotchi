@@ -41,9 +41,9 @@ public class GameStartPanel extends JPanel implements Globals, Components {
         bottomPanel.bathroomButton.setEnabled(true);
         bottomPanel.outdoorButton.setEnabled(true);
         bottomPanel.kitchenButton.setEnabled(true);
-        statusPanel.cleanBar.barSpeed(SLOW);
-        statusPanel.exerciseBar.barSpeed(SLOW);
-        statusPanel.eatBar.barSpeed(SLOW);
+        statusPanel.cleanBar.setBarSpeed(SLOW);
+        statusPanel.exerciseBar.setBarSpeed(SLOW);
+        statusPanel.eatBar.setBarSpeed(SLOW);
         startStopButton.setText("Start");
     }
 
@@ -51,9 +51,9 @@ public class GameStartPanel extends JPanel implements Globals, Components {
         bottomPanel.bathroomButton.setEnabled(false);
         bottomPanel.outdoorButton.setEnabled(false);
         bottomPanel.kitchenButton.setEnabled(false);
-        statusPanel.cleanBar.barSpeed(STOP);
-        statusPanel.exerciseBar.barSpeed(STOP);
-        statusPanel.eatBar.barSpeed(STOP);
+        statusPanel.cleanBar.setBarSpeed(STOP);
+        statusPanel.exerciseBar.setBarSpeed(STOP);
+        statusPanel.eatBar.setBarSpeed(STOP);
         startStopButton.setText("Stop");
         this.room.startGame();
     }

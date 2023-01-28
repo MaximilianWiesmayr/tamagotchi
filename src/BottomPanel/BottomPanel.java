@@ -1,11 +1,13 @@
 package BottomPanel;
 
-import static Interface.Globals.LABEL_FONT;
+import GamePanel.Room.*;
+import Interface.Components;
 import StatusPanel.NeedBar;
 import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
+import static Interface.Globals.LABEL_FONT_STATUSPANEL;
 
 public class BottomPanel extends JPanel {
 
@@ -20,9 +22,9 @@ public class BottomPanel extends JPanel {
 
     public BottomPanel() {
         //3 buttons to change the rooms
-        bathroomButton = new RoomButton("Bathroom");
-        kitchenButton = new RoomButton("Kitchen");
-        outdoorButton = new RoomButton("Outdoor");
+        bathroomButton = new RoomButton(new Bathroom(), "Bathroom");
+        kitchenButton = new RoomButton(new Kitchen(), "Kitchen");
+        outdoorButton = new RoomButton(new Outdoor(), "Outdoor");
 
         //Panel for each button
         bathroomPanel = createPanel(bathroomButton);

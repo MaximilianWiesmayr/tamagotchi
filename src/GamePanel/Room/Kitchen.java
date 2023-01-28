@@ -1,42 +1,50 @@
 package GamePanel.Room;
 
-import GamePanel.Sprite.Creature;
-import GamePanel.Sprite.Sprite;
+//import GamePanel.Sprite.Creature;
+//import GamePanel.Sprite.Sprite;
+import static Interface.Globals.*;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
+//import java.awt.image.BufferedImage;
+//import java.io.File;
+//import java.io.IOException;
+//import java.util.logging.Level;
+//import java.util.logging.Logger;
+//import javax.imageio.ImageIO;
 
 public class Kitchen extends Room{
-    private Sprite creature;
-    private BufferedImage backgroundImage;
+//    private Creature creature; -> is now in Room defined
+//    private BufferedImage backgroundImage;
     
     public Kitchen() {
+        creaturePosX = 230;
+        creaturePosY = 300;
+        //Path to backgroundimage
+        bgSrc = "img/kitchen.jpg";
         
         createBackground();
-        setCreature("img/images.jpg");
-        repaint();
-    }
-
-    
-    @Override
-    public void createBackground() {
-        try {
-            backgroundImage = ImageIO.read(new File ("img/kitchen.jpg"));
-        } catch (IOException ex) {
-            System.out.println("Hallo");
-        }
+        setCreature(CREATURE_NORMAL_RIGHT);
         
+//        createBackground();
+//        setCreature("normal");
+        //repaint();
     }
+    
+//    @Override
+//    public void createBackground() {
+//        try {
+//            backgroundImage = ImageIO.read(new File ("img/kitchen.jpg"));
+//        } catch (IOException ex) {
+//            System.out.println("Hallo");
+//        }
+//        
+//    }
 
-    @Override
-    protected void setCreature(String path) {
-        creature = new Creature(path, 250, 250);
-    }
+//    @Override
+//    is now defined in Room
+//    protected void setCreature(String appearance) {
+//        creature = new Creature(appearance, 250, 250);
+//    }
     
     @Override
     public void paintComponent(Graphics g) {
@@ -45,7 +53,7 @@ public class Kitchen extends Room{
         //draw background image
         g.drawImage(backgroundImage, 0, 0, null);
         
-         creature.draw((Graphics2D) g);
+        creature.draw((Graphics2D) g);
 
         // Note for updating the sprite
         // There is a redraw method where you can specify a box that is redrawn

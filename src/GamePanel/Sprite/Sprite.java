@@ -7,11 +7,11 @@ import java.awt.event.KeyEvent;
 public class Sprite {
 
     ImageIcon image;
-    int posX;
-    int posY;
+    private int posX;
+    private int posY;
 
-    int height;
-    int width;
+    private int height;
+    private int width;
 
     public Sprite(String imgsrc, int posX, int posY) {
         this.image = new ImageIcon(imgsrc); // Allows to get image through the file path
@@ -19,7 +19,6 @@ public class Sprite {
         this.posX = posX;
         this.height = this.image.getIconHeight();
         this.width = this.image.getIconWidth();
-
     }
 
     public void draw(Graphics2D g){
@@ -43,7 +42,7 @@ public class Sprite {
     public int getPosY() {
         return posY;
     }
-
+       
     public void setPosX(int posX) {
         this.posX = posX;
     }
@@ -66,5 +65,17 @@ public class Sprite {
 
     public Image getImage() {
         return image.getImage(); // Returns the actual image, might be needed outside
+    }
+    
+    public void setImage(String newImgsrc) {
+        image = new ImageIcon(newImgsrc);
+    }
+    
+    public Rectangle getBounds() {
+        return new Rectangle(posX, posY, width, height);    //Returns a rectangle at the position of the image
+    }
+    
+    public boolean collides (Sprite otherSprite) {
+        return this.getBounds().intersects(otherSprite.getBounds());    //Returns if Sprite collides with other Sprite or not
     }
 }

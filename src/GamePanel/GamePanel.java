@@ -1,16 +1,12 @@
 package GamePanel;
 
-import GamePanel.Room.Kitchen;
-import GamePanel.Room.Outdoor;
-import GamePanel.Room.Room;
+import GamePanel.Room.*;
 import java.awt.BorderLayout;
-import java.awt.Component;
 
 import javax.swing.*;
 
 
 public class GamePanel extends JPanel {
-
   
     private Room room;
     private GameStartPanel gameStartPanel;
@@ -34,6 +30,5 @@ public class GamePanel extends JPanel {
         //repaint();
         //change panel with button and description
     }
-    
     
 }
