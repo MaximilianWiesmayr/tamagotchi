@@ -1,8 +1,8 @@
 package GamePanel.Room;
 
-//import GamePanel.Sprite.Creature;
+import GamePanel.Sprite.Creature;
 //import GamePanel.Sprite.Sprite;
-import static Interface.Globals.*;
+//import static Interface.Globals.*;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 //import java.awt.image.BufferedImage;
@@ -13,38 +13,13 @@ import java.awt.Graphics2D;
 //import javax.imageio.ImageIO;
 
 public class Kitchen extends Room{
-//    private Creature creature; -> is now in Room defined
-//    private BufferedImage backgroundImage;
     
     public Kitchen() {
-        creaturePosX = 230;
-        creaturePosY = 300;
-        //Path to backgroundimage
-        bgSrc = "img/kitchen.jpg";
+        super(new Creature(0, true, 230, 300), "img/kitchen.jpg");  //Creature normal right
         
-        createBackground();
-        setCreature(CREATURE_NORMAL_RIGHT);
         
-//        createBackground();
-//        setCreature("normal");
-        //repaint();
     }
     
-//    @Override
-//    public void createBackground() {
-//        try {
-//            backgroundImage = ImageIO.read(new File ("img/kitchen.jpg"));
-//        } catch (IOException ex) {
-//            System.out.println("Hallo");
-//        }
-//        
-//    }
-
-//    @Override
-//    is now defined in Room
-//    protected void setCreature(String appearance) {
-//        creature = new Creature(appearance, 250, 250);
-//    }
     
     @Override
     public void paintComponent(Graphics g) {

@@ -22,9 +22,9 @@ public class BottomPanel extends JPanel {
 
     public BottomPanel() {
         //3 buttons to change the rooms
-        bathroomButton = new RoomButton(new Bathroom(), "Bathroom");
-        kitchenButton = new RoomButton(new Kitchen(), "Kitchen");
-        outdoorButton = new RoomButton(new Outdoor(), "Outdoor");
+        bathroomButton = new RoomButton("Bathroom");
+        kitchenButton = new RoomButton("Kitchen");
+        outdoorButton = new RoomButton("Outdoor");
 
         //Panel for each button
         bathroomPanel = createPanel(bathroomButton);

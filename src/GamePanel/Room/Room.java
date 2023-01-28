@@ -2,6 +2,7 @@ package GamePanel.Room;
 
 import GamePanel.Sprite.Creature;
 import Interface.Components;
+import static Interface.Globals.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -9,31 +10,30 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public abstract class Room extends JPanel implements Components {
-    //all protected, so that childs have access 
-    protected int creaturePosX;
-    protected int creaturePosY;
+    
+    //every Room hast a creature and a background
     protected Creature creature;
-    
     protected BufferedImage backgroundImage;
-    protected String bgSrc;
     
-    public Room(){
-       
-    }
-    
-//    //override method to change the backgroundimage
-//    abstract protected void createBackground();
-    
-    public void createBackground() {
+    public Room(Creature creature, String bgSrc){   
+        //Create Background
         try {
             backgroundImage = ImageIO.read(new File(bgSrc));
         } catch (IOException ex) {
             System.out.println("Fehler beim Laden des Hintergrundbildes");
         }
+        
+        this.creature = creature;
     }
     
-    protected void setCreature(String imgsrc) {
-        creature = new Creature(imgsrc, creaturePosX, creaturePosY);
+    //Returns a JLabel for displaying the score of the minigame
+    protected JLabel getScoreLabel(String scoreText, int score){
+        JLabel scoreLabel = new JLabel(scoreText + score);
+        scoreLabel.setFont(LABEL_FONT_MINIGAME_SCORE);
+        scoreLabel.setForeground(COLOR_LABEL_MINIGAME_SCORE_FG);
+        scoreLabel.setBackground(COLOR_LABEL_MINIGAME_SCORE_BG);
+        scoreLabel.setOpaque(true);
+        return scoreLabel;
     }
     
     abstract public void startGame();

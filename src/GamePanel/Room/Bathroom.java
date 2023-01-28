@@ -12,40 +12,32 @@ import javax.swing.JLabel;
 import javax.swing.Timer;
 
 public class Bathroom extends Room implements Globals, Components, KeyListener, ActionListener {
-    //Creature and Position of it are defined in Room and initialised in Constructor of Bathroom
 
     //Array with Waterdrops
     private Waterdrop[] waterdrop = new Waterdrop[2];
     //Timer -> in order to have an update method (which is called every delay of timer)
     private Timer timer;
-    //Booleans for Images
-    private int isDirty = 1;     //for minigame, important for start/stop
+    //for Images
+    private int isDirty = 1;            //for minigame, 0: not dirty, 1: dirty
     private boolean isRight = true;     //for minigame, important for start/stop
     //number of collected Waterdrops
     public int collectedWaterdrops = 0;
     //Label for that
-    JLabel labelWaterdrops = new JLabel("Collected Waterdrops: " + collectedWaterdrops);
+    JLabel labelWaterdrops;
 
+    
     public Bathroom() {
-        //Position of creature
-        creaturePosX = 230;
-        creaturePosY = 300;
-        //Path to backgroundimage
-        bgSrc = "img/bathroom.jpg";
+        super(new Creature(0, true, 230, 300), "img/bathroom.jpg"); //Creature normal right
         
-        createBackground();
-        setCreature(CREATURE_NORMAL_RIGHT);
+        //initialize Waterdrops
         for(int i=0; i<waterdrop.length; i++){
-            //in the beginning same space between waterdrops
+            //in the beginning same space between waterdrops (regardless of the number)
             int space = backgroundImage.getHeight()/waterdrop.length;
             waterdrop[i] = new Waterdrop(backgroundImage.getHeight(), i * space);   //space as delay
         }
         
-        //Label for number of waterdrops
-        labelWaterdrops.setFont(LABEL_FONT_MINIGAME_SCORE);
-        labelWaterdrops.setForeground(COLOR_LABEL_MINIGAME_SCORE_FG);
-        labelWaterdrops.setBackground(COLOR_LABEL_MINIGAME_SCORE_BG);
-        labelWaterdrops.setOpaque(true);
+        //get a scoreLabel for number of collected waterdrops and add it to Panel
+        labelWaterdrops = getScoreLabel("Collected Waterdrops: ", collectedWaterdrops);
         add(labelWaterdrops);
         
         //make KeyListener work
@@ -74,14 +66,10 @@ public class Bathroom extends Room implements Globals, Components, KeyListener, 
     public void startGame() {
         System.out.println("started Bathroom game");
 
-        if (statusPanel.cleanBar.getValue() <100) {
-            isDirty = 1;
-        }
-        //set correct Creature-Image (after stop - start)
-        if(isDirty == 1 && isRight) creature.setImage(CREATURE_DIRTY_RIGHT);
-        else if(isDirty == 1 && !isRight) creature.setImage(CREATURE_DIRTY_LEFT);
-        else if(isDirty == 0 && isRight) creature.setImage(CREATURE_NORMAL_RIGHT);
-        else if(isDirty == 0 && !isRight) creature.setImage(CREATURE_NORMAL_LEFT);
+        if (statusPanel.cleanBar.getValue() < 100) isDirty = 1;     //check if dirty and set int
+        
+        //set correct Creature-Image (after stop - start) -> isDirty as type and isRight is for direction
+        creature.setAppearance(isDirty, isRight);
         
         timer.start();  //start Timer -> therefore actionPerformed() (and update()) is called
     }
@@ -117,8 +105,7 @@ public class Bathroom extends Room implements Globals, Components, KeyListener, 
         int barVal = statusPanel.cleanBar.getValue();        //get value from CleanBar
         if(barVal >= 100){
             isDirty = 0;
-            if(isRight) creature.setImage(CREATURE_NORMAL_RIGHT);   //change Img right away
-            else creature.setImage(CREATURE_NORMAL_LEFT);
+            creature.setAppearance(isDirty, isRight);       //change Img right away
         }
 
         //make changes visible

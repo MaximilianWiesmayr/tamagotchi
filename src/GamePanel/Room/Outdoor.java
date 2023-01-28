@@ -21,7 +21,6 @@ import java.awt.event.KeyListener;
 
 public class Outdoor extends Room implements Globals, Components, KeyListener, ActionListener {
     
-
     private boolean isRight = true;
     private boolean nextButtonIsA = true;
 
@@ -35,22 +34,11 @@ public class Outdoor extends Room implements Globals, Components, KeyListener, A
      * Constructor for Outdoors
      */
     public Outdoor() {
-        //Position of creature
-        creaturePosX = 0;
-        creaturePosY = 300;
-        //Path to backgroundimage
-        bgSrc = "img/outdoor.png";
-        
-        createBackground();
-        setCreature(CREATURE_OUTDOOR_RIGHT);
+        super(new Creature(2, true, 0, 300), "img/outdoor.png");    //Creature Outdoor right
 
-        //Label for number of completed laps
-        this.lapLabel = new JLabel("Completed Laps: " + this.completedLaps);
-        this.lapLabel.setFont(LABEL_FONT_MINIGAME_SCORE);
-        this.lapLabel.setForeground(COLOR_LABEL_MINIGAME_SCORE_FG);
-        this.lapLabel.setBackground(COLOR_LABEL_MINIGAME_SCORE_BG);
-        this.lapLabel.setOpaque(true);
-        add(this.lapLabel);
+        //get a scoreLabel for number of completed laps and add it to Panel
+        lapLabel = getScoreLabel("Completed Laps: ", completedLaps);
+        add(lapLabel);
 
         //make KeyListener work
         this.addKeyListener(this);

@@ -12,32 +12,27 @@ import java.awt.event.MouseListener;
 public class RoomButton extends JButton implements Globals, MouseListener, Components {
     
     private String name;
-    private Room room;
     
-    public RoomButton(Room room, String name){
+    public RoomButton(String name){
         super(name);
         this.name = name;
-        this.room = room;
         addMouseListener(this);
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
         //depending on the button, different room is created
-//        switch (name) {
-//            case "Kitchen":
-//                gamePanel.setRoom(new Kitchen());
-//                break;
-//            case "Bathroom":
-//                gamePanel.setRoom(new Bathroom());
-//                break;
-//            case "Outdoor":
-//                gamePanel.setRoom(new Outdoor());
-//                break;
-//        }
-
-        //if button is clicked, room is changed
-        gamePanel.setRoom(room);
+        switch (name) {
+            case "Kitchen":
+                gamePanel.setRoom(new Kitchen());
+                break;
+            case "Bathroom":
+                gamePanel.setRoom(new Bathroom());
+                break;
+            case "Outdoor":
+                gamePanel.setRoom(new Outdoor());
+                break;
+        }
     }
 
     @Override

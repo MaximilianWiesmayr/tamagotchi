@@ -6,8 +6,9 @@ public class Creature extends Sprite implements Globals {
     
     private int addX = 0;
     
-    public Creature(String imgsrc, int posX, int posY){
-        super(imgsrc, posX, posY);
+    public Creature(int useImg, boolean isRight, int posX, int posY){
+        super(CREATURE_NORMAL_RIGHT, posX, posY);   //as default - will be changed in next line
+        setAppearance(useImg, isRight);
     }
 
     /**
@@ -21,18 +22,19 @@ public class Creature extends Sprite implements Globals {
         if(getPosX() > this.getMinPosX()) addX = -CREATURE_SPEED;     //as long as PosX is inside Window, value of addX is negative
         else addX = 0;
 
-        //Image for movement to the right
-        switch (useImg) {
-            case 0: // Clean Sprite
-                setImage(CREATURE_NORMAL_LEFT);
-                break;
-            case 1: // Clean Dirty
-                setImage(CREATURE_DIRTY_LEFT);
-                break;
-            case 2: // Outdoor
-                setImage(CREATURE_OUTDOOR_LEFT);
-                break;
-        }
+        //correct Image for movement to the right
+        setAppearance(useImg, false);
+//        switch (useImg) {
+//            case 0: // Clean Sprite
+//                setImage(CREATURE_NORMAL_LEFT);
+//                break;
+//            case 1: // Clean Dirty
+//                setImage(CREATURE_DIRTY_LEFT);
+//                break;
+//            case 2: // Outdoor
+//                setImage(CREATURE_OUTDOOR_LEFT);
+//                break;
+//        }
     }
 
     /**
@@ -46,18 +48,19 @@ public class Creature extends Sprite implements Globals {
         if(getPosX() < this.getMaxPosX()) addX = CREATURE_SPEED;      //as long as PosX is inside Window, value of addX is positive
         else addX = 0;
         
-        //Image for movement to the right
-        switch (useImg) {
-            case 0: // Clean Sprite
-                setImage(CREATURE_NORMAL_RIGHT);
-                break;
-            case 1: // Clean Dirty
-                setImage(CREATURE_DIRTY_RIGHT);
-                break;
-            case 2: // Outdoor
-                setImage(CREATURE_OUTDOOR_RIGHT);
-                break;
-        }
+        //correct Image for movement to the right
+        setAppearance(useImg, true);
+//        switch (useImg) {
+//            case 0: // Clean Sprite
+//                setImage(CREATURE_NORMAL_RIGHT);
+//                break;
+//            case 1: // Clean Dirty
+//                setImage(CREATURE_DIRTY_RIGHT);
+//                break;
+//            case 2: // Outdoor
+//                setImage(CREATURE_OUTDOOR_RIGHT);
+//                break;
+//        }
     }
     
     public void stop(){
@@ -69,6 +72,33 @@ public class Creature extends Sprite implements Globals {
         moveX(addX);
     }
 
-
+    //sets correct Appearane/Image of Creature based on type (useImg) and direction (left/right)
+    public void setAppearance(int useImg, boolean isRight){
+        if(isRight){    //Images where creature is looking to right side
+            switch (useImg) {
+            case 0: // Clean Normal
+                setImage(CREATURE_NORMAL_RIGHT);
+                break;
+            case 1: // Clean Dirty
+                setImage(CREATURE_DIRTY_RIGHT);
+                break;
+            case 2: // Outdoor
+                setImage(CREATURE_OUTDOOR_RIGHT);
+                break;
+            }
+        } else {    //Images where creature is looking to left side
+            switch (useImg) {
+            case 0: // Clean Normal
+                setImage(CREATURE_NORMAL_LEFT);
+                break;
+            case 1: // Clean Dirty
+                setImage(CREATURE_DIRTY_LEFT);
+                break;
+            case 2: // Outdoor
+                setImage(CREATURE_OUTDOOR_LEFT);
+                break;
+            }
+        }
+    }
     
 }
