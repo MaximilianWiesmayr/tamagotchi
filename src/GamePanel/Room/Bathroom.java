@@ -19,7 +19,7 @@ public class Bathroom extends Room implements Globals, Components, KeyListener, 
     //Timer -> in order to have an update method (which is called every delay of timer)
     private Timer timer;
     //Booleans for Images
-    private boolean isDirty = true;     //for minigame, important for start/stop
+    private int isDirty = 1;     //for minigame, important for start/stop
     private boolean isRight = true;     //for minigame, important for start/stop
     //number of collected Waterdrops
     public int collectedWaterdrops = 0;
@@ -73,12 +73,15 @@ public class Bathroom extends Room implements Globals, Components, KeyListener, 
     @Override
     public void startGame() {
         System.out.println("started Bathroom game");
-        statusPanel.cleanBar.setBarSpeed(STOP);      //stop Bar(s) from loosing percentage
+
+        if (statusPanel.cleanBar.getValue() <100) {
+            isDirty = 1;
+        }
         //set correct Creature-Image (after stop - start)
-        if(isDirty && isRight) creature.setImage(CREATURE_DIRTY_RIGHT);
-        else if(isDirty && !isRight) creature.setImage(CREATURE_DIRTY_LEFT);
-        else if(!isDirty && isRight) creature.setImage(CREATURE_NORMAL_RIGHT);
-        else if(!isDirty && !isRight) creature.setImage(CREATURE_NORMAL_LEFT);
+        if(isDirty == 1 && isRight) creature.setImage(CREATURE_DIRTY_RIGHT);
+        else if(isDirty == 1 && !isRight) creature.setImage(CREATURE_DIRTY_LEFT);
+        else if(isDirty == 0 && isRight) creature.setImage(CREATURE_NORMAL_RIGHT);
+        else if(isDirty == 0 && !isRight) creature.setImage(CREATURE_NORMAL_LEFT);
         
         timer.start();  //start Timer -> therefore actionPerformed() (and update()) is called
     }
@@ -90,6 +93,7 @@ public class Bathroom extends Room implements Globals, Components, KeyListener, 
     }
     
     //GameLoop
+    @Override
     public void update(){  
         this.requestFocus();    //KeyListener and ActionListener both work
         
@@ -112,7 +116,7 @@ public class Bathroom extends Room implements Globals, Components, KeyListener, 
         //if CleanBar 100% than no longer dirty
         int barVal = statusPanel.cleanBar.getValue();        //get value from CleanBar
         if(barVal >= 100){
-            isDirty = false;
+            isDirty = 0;
             if(isRight) creature.setImage(CREATURE_NORMAL_RIGHT);   //change Img right away
             else creature.setImage(CREATURE_NORMAL_LEFT);
         }
@@ -125,7 +129,6 @@ public class Bathroom extends Room implements Globals, Components, KeyListener, 
     @Override
     public void stopGame() {
         System.out.println("stopped Bathroom game");
-        statusPanel.cleanBar.setBarSpeed(SLOW);      //Bar(s) loose percentage again
         timer.stop();
     }
     

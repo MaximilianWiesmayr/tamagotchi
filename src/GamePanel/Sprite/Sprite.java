@@ -1,10 +1,12 @@
 package GamePanel.Sprite;
 
+import Interface.Globals;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
-public class Sprite {
+public class Sprite implements Globals {
 
     ImageIcon image;
     private int posX;
@@ -13,12 +15,17 @@ public class Sprite {
     private int height;
     private int width;
 
+    private int minPosX;
+    private int maxPosX;
+
     public Sprite(String imgsrc, int posX, int posY) {
         this.image = new ImageIcon(imgsrc); // Allows to get image through the file path
         this.posY = posY;
         this.posX = posX;
         this.height = this.image.getIconHeight();
         this.width = this.image.getIconWidth();
+        this.minPosX = 0;
+        this.maxPosX = WINDOW_WIDTH - getWidth();    //creature should always stay in window
     }
 
     public void draw(Graphics2D g){
@@ -42,7 +49,14 @@ public class Sprite {
     public int getPosY() {
         return posY;
     }
-       
+
+    public int getMaxPosX() {
+        return maxPosX;
+    }
+    public int getMinPosX() {
+        return minPosX;
+    }
+
     public void setPosX(int posX) {
         this.posX = posX;
     }

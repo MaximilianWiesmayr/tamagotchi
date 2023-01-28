@@ -12,6 +12,10 @@ public interface Globals {
     String CREATURE_NORMAL_LEFT = "img/creature_no_rainbow_left.png";
     String CREATURE_DIRTY_RIGHT = "img/creature_no_rainbow_dirty_right.png";
     String CREATURE_DIRTY_LEFT = "img/creature_no_rainbow_dirty_left.png";
+
+
+    String CREATURE_OUTDOOR_RIGHT = "img/creature_with_rainbow_right.png";
+    String CREATURE_OUTDOOR_LEFT = "img/creature_with_rainbow_left.png";
     
     String SRC_WATERDROP = "img/waterdrop.png";
 

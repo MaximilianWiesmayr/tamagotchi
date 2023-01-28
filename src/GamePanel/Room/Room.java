@@ -38,6 +38,8 @@ public abstract class Room extends JPanel implements Components {
     
     abstract public void startGame();
 
+    abstract public void update();
+
     abstract public void stopGame();
     
 }

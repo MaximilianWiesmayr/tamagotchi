@@ -65,6 +65,11 @@ public class Kitchen extends Room{
     }
 
     @Override
+    public void update() {
+        System.out.println("updated Kitchen game");
+    }
+
+    @Override
     public void stopGame() {
         System.out.println("stopped Kitchen game");
     }

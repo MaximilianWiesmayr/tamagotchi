@@ -5,29 +5,59 @@ import Interface.Globals;
 public class Creature extends Sprite implements Globals {
     
     private int addX = 0;
-    private int minPosX = 0;
-    private int maxPosX = WINDOW_WIDTH - getWidth();    //creature should always stay in window
     
     public Creature(String imgsrc, int posX, int posY){
         super(imgsrc, posX, posY);
     }
-    
-    public void moveLeft(boolean isDirty){
-        if(getPosX() > minPosX) addX = -CREATURE_SPEED;     //as long as PosX is inside Window, value of addX is negative
+
+    /**
+     * Checks if the creature can be moved left and allows or denies the movement
+     * @param useImg int which creature image should be used
+     *               0 - Normal
+     *               1 - Dirty
+     *               2 - Outdoor
+     */
+    public void moveLeft(int useImg){
+        if(getPosX() > this.getMinPosX()) addX = -CREATURE_SPEED;     //as long as PosX is inside Window, value of addX is negative
         else addX = 0;
 
-        //Image for movement to the left
-        if(isDirty) setImage(CREATURE_DIRTY_LEFT);  //dirty
-        else setImage(CREATURE_NORMAL_LEFT);        //clean
+        //Image for movement to the right
+        switch (useImg) {
+            case 0: // Clean Sprite
+                setImage(CREATURE_NORMAL_LEFT);
+                break;
+            case 1: // Clean Dirty
+                setImage(CREATURE_DIRTY_LEFT);
+                break;
+            case 2: // Outdoor
+                setImage(CREATURE_OUTDOOR_LEFT);
+                break;
+        }
     }
-    
-    public void moveRight(boolean isDirty){
-        if(getPosX() < maxPosX) addX = CREATURE_SPEED;      //as long as PosX is inside Window, value of addX is positive
+
+    /**
+     * Checks if the creature can be moved right and allows or denies the movement
+     * @param useImg int which creature image should be used
+     *               0 - Normal
+     *               1 - Dirty
+     *               2 - Outdoor
+     */
+    public void moveRight(int useImg){
+        if(getPosX() < this.getMaxPosX()) addX = CREATURE_SPEED;      //as long as PosX is inside Window, value of addX is positive
         else addX = 0;
         
         //Image for movement to the right
-        if(isDirty) setImage(CREATURE_DIRTY_RIGHT);  //dirty
-        else setImage(CREATURE_NORMAL_RIGHT);        //clean
+        switch (useImg) {
+            case 0: // Clean Sprite
+                setImage(CREATURE_NORMAL_RIGHT);
+                break;
+            case 1: // Clean Dirty
+                setImage(CREATURE_DIRTY_RIGHT);
+                break;
+            case 2: // Outdoor
+                setImage(CREATURE_OUTDOOR_RIGHT);
+                break;
+        }
     }
     
     public void stop(){
@@ -38,5 +68,7 @@ public class Creature extends Sprite implements Globals {
     public void performMove(){
         moveX(addX);
     }
+
+
     
 }

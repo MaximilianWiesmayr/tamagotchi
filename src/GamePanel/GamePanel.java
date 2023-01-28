@@ -23,8 +23,8 @@ public class GamePanel extends JPanel {
 
     public void setRoom(Room room) {
         remove(this.room);
-        gameStartPanel.changeRoom(room);
         this.room = room;
+        gameStartPanel.changeRoom(this.room);
         add(this.room, BorderLayout.CENTER);
         revalidate();
         repaint();
