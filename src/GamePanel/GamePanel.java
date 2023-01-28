@@ -27,7 +27,7 @@ public class GamePanel extends JPanel {
         this.room = room;
         add(this.room, BorderLayout.CENTER);
         revalidate();
-        //repaint();
+        repaint();
         //change panel with button and description
     }
     

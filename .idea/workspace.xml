@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4d8472f-5737-4c7c-9570-f7f75129a590" name="Changes" comment="added function to change bar decay speed&#10;added function to jump to specific percentage Value for future functionalities">
-      <change afterPath="$PROJECT_DIR$/src/GamePanel/GameStartPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BottomPanel/BottomPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BottomPanel/BottomPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GamePanel/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GamePanel/Room/Bathroom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel/Room/Bathroom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GamePanel/Room/Kitchen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel/Room/Kitchen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GamePanel/Room/Outdoor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel/Room/Outdoor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GamePanel/Room/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel/Room/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interface/Globals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/Globals.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StatusPanel/StatusPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StatusPanel/StatusPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
