@@ -18,6 +18,7 @@ public interface Globals {
     String CREATURE_OUTDOOR_LEFT = "img/creature_with_rainbow_left.png";
     
     String SRC_WATERDROP = "img/waterdrop.png";
+    String SRC_FOOD = "img/food.png";
 
     String GAMEDESCRIPTION_KITCHEN = "Kitchengame";
     String GAMEDESCRIPTION_BATHROOM = "Bathroomgame";

@@ -1,6 +1,8 @@
 package GamePanel.Sprite;
 
 import Interface.Globals;
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
 
 public class Creature extends Sprite implements Globals {
     
@@ -100,5 +102,10 @@ public class Creature extends Sprite implements Globals {
             }
         }
     }
+    public Rectangle getMouth(){
+     return new Rectangle (getPosX()+150, getPosY()+80, 60, 60);   
+    }
+    
+    
     
 }
