@@ -111,8 +111,6 @@ public class Outdoor extends Room implements Globals, Components, KeyListener, A
      */
     @Override
     public void keyPressed(KeyEvent e) {
-        System.out.println(e.getKeyCode());
-        System.out.println(KeyEvent.VK_LEFT);
         // Listen to a  or left arrwo Key
         if (e.getKeyChar() == 'a' || e.getKeyCode() == KeyEvent.VK_LEFT) {
             // Check if the Button can be pressed
