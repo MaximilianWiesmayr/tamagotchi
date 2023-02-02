@@ -4,13 +4,8 @@ import GamePanel.Sprite.Creature;
 import GamePanel.Sprite.Food;
 import Interface.Components;
 import Interface.Globals;
-//import GamePanel.Sprite.Sprite;
-//import static Interface.Globals.*;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.MouseInfo;
-import java.awt.Point;
-import java.awt.PointerInfo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -18,12 +13,6 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import javax.swing.JLabel;
 import javax.swing.Timer;
-//import java.awt.image.BufferedImage;
-//import java.io.File;
-//import java.io.IOException;
-//import java.util.logging.Level;
-//import java.util.logging.Logger;
-//import javax.imageio.ImageIO;
 
 public class Kitchen extends Room implements Globals, Components, ActionListener, MouseListener, MouseMotionListener{
     private Food food;
@@ -44,7 +33,6 @@ public class Kitchen extends Room implements Globals, Components, ActionListener
         timer = new Timer(1, this);
         addMouseListener(this);
         addMouseMotionListener(this);
-        //
     }
     
     
@@ -61,15 +49,10 @@ public class Kitchen extends Room implements Globals, Components, ActionListener
        {
            food.draw((Graphics2D) g);
        }
-
-        // Note for updating the sprite
-        // There is a redraw method where you can specify a box that is redrawn
     }
 
     @Override
-    public void startGame() {
-        System.out.println("started Kitchen game");
-        
+    public void startGame() {      
         //Spawn cookie
         food = new Food();
         playing = true;
@@ -78,8 +61,6 @@ public class Kitchen extends Room implements Globals, Components, ActionListener
 
     @Override
     public void update() {
-        //System.out.println("updated Kitchen game");
-//        this.food.setPosX(x);
         if(playing && dragged){
             food.setPosX(currentMouseX - food.getWidth()/2);
             food.setPosY(currentMouseY - food.getHeight()/2);
@@ -93,7 +74,6 @@ public class Kitchen extends Room implements Globals, Components, ActionListener
 
     @Override
     public void stopGame() {
-        System.out.println("stopped Kitchen game");
         dragged = false;
         playing = false;
         food = null;

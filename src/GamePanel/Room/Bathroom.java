@@ -64,8 +64,6 @@ public class Bathroom extends Room implements Globals, Components, KeyListener, 
     
     @Override
     public void startGame() {
-        System.out.println("started Bathroom game");
-
         if (statusPanel.cleanBar.getValue() < 100) isDirty = 1;     //check if dirty and set int
         
         //set correct Creature-Image (after stop - start) -> isDirty as type and isRight is for direction
@@ -115,7 +113,6 @@ public class Bathroom extends Room implements Globals, Components, KeyListener, 
     //if Stop Button is clicked
     @Override
     public void stopGame() {
-        System.out.println("stopped Bathroom game");
         timer.stop();
     }
     

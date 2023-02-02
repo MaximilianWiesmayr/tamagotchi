@@ -4,7 +4,7 @@ import Interface.Globals;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
+import java.util.Random;
 
 public class Sprite implements Globals {
 
@@ -95,5 +95,11 @@ public class Sprite implements Globals {
     
     public boolean collides (Sprite otherSprite) {
         return this.getBounds().intersects(otherSprite.getBounds());    //Returns if Sprite collides with other Sprite or not
+    }
+    
+    //returns random int between min and max (both inclusive)
+    protected int random(int min, int max){
+        Random random = new Random();
+        return random.nextInt(max - min + 1) + min;     //nextInt(bound) returns an int between 0 and bound (exclusive)
     }
 }

@@ -1,7 +1,6 @@
 package GamePanel.Sprite;
 
 import Interface.Globals;
-import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
 public class Creature extends Sprite implements Globals {
@@ -26,17 +25,6 @@ public class Creature extends Sprite implements Globals {
 
         //correct Image for movement to the right
         setAppearance(useImg, false);
-//        switch (useImg) {
-//            case 0: // Clean Sprite
-//                setImage(CREATURE_NORMAL_LEFT);
-//                break;
-//            case 1: // Clean Dirty
-//                setImage(CREATURE_DIRTY_LEFT);
-//                break;
-//            case 2: // Outdoor
-//                setImage(CREATURE_OUTDOOR_LEFT);
-//                break;
-//        }
     }
 
     /**
@@ -52,17 +40,6 @@ public class Creature extends Sprite implements Globals {
         
         //correct Image for movement to the right
         setAppearance(useImg, true);
-//        switch (useImg) {
-//            case 0: // Clean Sprite
-//                setImage(CREATURE_NORMAL_RIGHT);
-//                break;
-//            case 1: // Clean Dirty
-//                setImage(CREATURE_DIRTY_RIGHT);
-//                break;
-//            case 2: // Outdoor
-//                setImage(CREATURE_OUTDOOR_RIGHT);
-//                break;
-//        }
     }
     
     public void stop(){
@@ -104,8 +81,9 @@ public class Creature extends Sprite implements Globals {
             }
         }
     }
+    
     public Rectangle getMouth(){
-     return new Rectangle (getPosX()+150, getPosY()+80, 60, 60);   
+        return new Rectangle (getPosX()+150, getPosY()+80, 60, 60);   
     }
     
     

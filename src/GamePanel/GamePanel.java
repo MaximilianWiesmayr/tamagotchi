@@ -12,7 +12,7 @@ public class GamePanel extends JPanel {
     public GameStartPanel gameStartPanel;
 
     public GamePanel() {
-        room = new Kitchen();
+        room = new Kitchen();       //in the beginning: Kitchen
         gameStartPanel = new GameStartPanel(room);
 
         this.setLayout(new BorderLayout());

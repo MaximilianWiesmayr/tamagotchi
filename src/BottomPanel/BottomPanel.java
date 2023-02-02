@@ -1,13 +1,7 @@
 package BottomPanel;
 
-import GamePanel.Room.*;
-import Interface.Components;
-import StatusPanel.NeedBar;
 import java.awt.GridLayout;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JProgressBar;
-import static Interface.Globals.LABEL_FONT_STATUSPANEL;
 
 public class BottomPanel extends JPanel {
 

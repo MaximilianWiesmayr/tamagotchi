@@ -125,7 +125,6 @@ public class GameStartPanel extends JPanel implements Globals, Components {
     }
 
     private GridBagConstraints setButtonDimensions(GridBagConstraints constraints) {
-        //constraints.ipady = 20;
         constraints.ipadx = 50;
         constraints.insets = new Insets(20,40,20,40);
         constraints.gridwidth = 1;

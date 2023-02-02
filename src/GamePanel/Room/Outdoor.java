@@ -2,24 +2,16 @@ package GamePanel.Room;
 
 import GamePanel.Sprite.Creature;
 import Interface.Components;
-import Interface.Globals;
-//import GamePanel.Sprite.Sprite;
-//import static Interface.Components.gamePanel;
 import javax.swing.*;
 
-import static Interface.Globals.*;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-//import java.awt.image.BufferedImage;
-//import java.io.File;
-//import java.io.IOException;
-//import javax.imageio.ImageIO;
 
-public class Outdoor extends Room implements Globals, Components, KeyListener, ActionListener {
+public class Outdoor extends Room implements Components, KeyListener, ActionListener {
     
     private boolean isRight = true;
     private boolean nextButtonIsA = true;
@@ -57,9 +49,6 @@ public class Outdoor extends Room implements Globals, Components, KeyListener, A
 
         // Draw Creature
         creature.draw((Graphics2D) g);
-
-        // Note for updating the sprite
-        // There is a redraw method where you can specify a box that is redrawn
     }
 
     /**
