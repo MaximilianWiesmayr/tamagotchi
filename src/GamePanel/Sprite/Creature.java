@@ -81,7 +81,7 @@ public class Creature extends Sprite implements Globals {
             }
         }
     }
-    
+    //hitbox for the mouth of the creature
     public Rectangle getMouth(){
         return new Rectangle (getPosX()+150, getPosY()+80, 60, 60);   
     }

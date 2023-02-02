@@ -30,7 +30,9 @@ public class Kitchen extends Room implements Globals, Components, ActionListener
         //get a scoreLabel for number of eaten cookies and add it to Panel
         labelCookies = getScoreLabel("Eaten Cookies: ", eatenCookies);
         add(labelCookies);
+        //create timer for actionPerfomed and update methods, makes Kitchen ActionListener
         timer = new Timer(1, this);
+        
         addMouseListener(this);
         addMouseMotionListener(this);
     }
@@ -44,7 +46,7 @@ public class Kitchen extends Room implements Globals, Components, ActionListener
         g.drawImage(backgroundImage, 0, 0, null);
         
         creature.draw((Graphics2D) g);
-        
+        //draw the cookie
        if (food != null)
        {
            food.draw((Graphics2D) g);
@@ -58,20 +60,21 @@ public class Kitchen extends Room implements Globals, Components, ActionListener
         playing = true;
         timer.start();
     }
-
+    //position of cookie is set new to make the cookie move with the curser
     @Override
     public void update() {
         if(playing && dragged){
             food.setPosX(currentMouseX - food.getWidth()/2);
             food.setPosY(currentMouseY - food.getHeight()/2);
         }
+        //when cookie is dropped, it will reset to the original position
         else if (playing && !dragged){
             food.resetPos();
         }
         
         repaint();
     }
-
+    //stopps the game and removes the cookie from the screen
     @Override
     public void stopGame() {
         dragged = false;
@@ -80,7 +83,7 @@ public class Kitchen extends Room implements Globals, Components, ActionListener
         update();
         timer.stop();
     }
-
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         update();
@@ -95,15 +98,15 @@ public class Kitchen extends Room implements Globals, Components, ActionListener
     public void mousePressed(MouseEvent e) {
 
     }
-
+    
     @Override
     public void mouseReleased(MouseEvent e) {
        
-        if(playing && dragged && creature.getMouth().contains(e.getPoint())){
+        if(playing && dragged && creature.getMouth().contains(e.getPoint())){   //checks if the cookie was release above the mouth of the creature
             eatenCookies++;
             food = new Food();
             statusPanel.eatBar.gainPercentage(2);
-            labelCookies.setText("Eaten Cookies: "+ eatenCookies);
+            labelCookies.setText("Eaten Cookies: "+ eatenCookies);      //percentage gets added to the need bar and label gets set with the new score
         }
         
         dragged = false;
@@ -121,13 +124,13 @@ public class Kitchen extends Room implements Globals, Components, ActionListener
     @Override
     public void mouseDragged(MouseEvent e) {
   
-        if (playing && !dragged && food.getBounds().contains(e.getPoint())) {
+        if (playing && !dragged && food.getBounds().contains(e.getPoint())) {   //checks if cookie was clicked and mouse was above the cookie
             currentMouseX = (int) e.getPoint().getX();
             currentMouseY = (int) e.getPoint().getY();
             dragged= true;
         }
         else if(playing && dragged){
-            currentMouseX = (int) e.getPoint().getX();
+            currentMouseX = (int) e.getPoint().getX();      //if the cookie was already taken, only the position of the mouse is updated -> lets the game run smoother
             currentMouseY = (int) e.getPoint().getY();
         }
 

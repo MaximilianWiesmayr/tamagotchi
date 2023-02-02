@@ -12,13 +12,14 @@ public class Food extends Sprite implements Globals, Components{
 
     public Food() {
         super(SRC_FOOD, 200, 200);
+        //get a random number for the position of the cookie
         this.startPosX = random(getMinPosX(), getMaxPosX());
         this.startPosY = random(this.minPosY, this.maxPosY);
         setPosX(this.startPosX);
         setPosY(this.startPosY);
 
     }
-    
+    //saves the current position of the cookie 
     public void resetPos(){
         setPosX(startPosX);
         setPosY(startPosY);
