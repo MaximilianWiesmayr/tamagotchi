@@ -18,6 +18,7 @@ public class GameStartPanel extends JPanel implements Globals, Components {
     Room room;
 
     int chance = 0;
+
     public GameStartPanel(Room room){
         this.room = room;
         startStopButton = new JButton("Start");
@@ -40,19 +41,10 @@ public class GameStartPanel extends JPanel implements Globals, Components {
         add(startStopButton, setButtonDimensions(new GridBagConstraints()));
     }
 
-    public void creatureDied(){
-        if(Objects.equals(startStopButton.getText(), "Stop")){
-            this.room.stopGame();
-        }
-        statusPanel.cleanBar.setBarSpeed(STOP);
-        statusPanel.exerciseBar.setBarSpeed(STOP);
-        statusPanel.eatBar.setBarSpeed(STOP);
-        startStopButton.setText("try revive");
-        descriptionArea.setVisible(false);
-        this.room.creature.setAppearance(3, true);
-        this.room.repaint();
-    }
-
+    //Gets called when the revive Button gets pressed
+    //Tries to revive the Tierchen. The Chance decreases every time try revive gets used.
+    //Everything gets reset if revive is successful
+    //When revive fails the background changes to a Deathscreen and except of the NeedBars the whole UI is invisible
     private void tryReviving() {
         if((int)(Math.random() * chance) < REVIVECHANCE) {
             chance++;
@@ -61,6 +53,8 @@ public class GameStartPanel extends JPanel implements Globals, Components {
             statusPanel.cleanBar.setPercentage(100);
             statusPanel.exerciseBar.setPercentage(100);
             statusPanel.eatBar.setPercentage(100);
+
+            //Changes to Outdoor appearance of Tierchen when tryRevive is done Outdoor
             if(this.room.getClass().toString().contains("Outdoor")){
                 this.room.creature.setAppearance(2, true);
             } else {
@@ -82,6 +76,19 @@ public class GameStartPanel extends JPanel implements Globals, Components {
         }
     }
 
+    //Gets called when a NeedBar hits 0
+    //Disables Interactions and changes the Creature appearance
+    public void creatureDied(){
+        if(Objects.equals(startStopButton.getText(), "Stop")){
+            this.room.stopGame();
+        }
+        changeUIAccesability(false, STOP);
+        startStopButton.setText("try revive");
+        descriptionArea.setVisible(false);
+        this.room.creature.setAppearance(3, true);
+        this.room.repaint();
+    }
+
     private void stopGameOfCurrRoom() {
         this.room.stopGame();
         startStopButton.setText("Start");
@@ -95,7 +102,8 @@ public class GameStartPanel extends JPanel implements Globals, Components {
         descriptionArea.setVisible(false);
         this.room.startGame();
     }
-
+    //removes or adds MouseListener on the Buttons for changing rooms
+    //changes BarSpeeds to the wished value
     private void changeUIAccesability(boolean mouseListener, int speed){
         if(!mouseListener) {
             bottomPanel.bathroomButton.removeMouseListener(bottomPanel.bathroomButton);

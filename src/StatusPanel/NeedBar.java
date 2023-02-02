@@ -1,6 +1,5 @@
 package StatusPanel;
 
-import GamePanel.GameStartPanel;
 import Interface.Components;
 import Interface.Globals;
 import static java.awt.Color.*;
@@ -9,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+
 
 public class NeedBar extends JProgressBar implements Components, Globals, ChangeListener {
     Timer timer;
@@ -19,7 +19,7 @@ public class NeedBar extends JProgressBar implements Components, Globals, Change
         setValue(100);      //in the beginning 100%
         
         //change look of Bar
-        setStringPainted(true);     //show percentage 
+        setStringPainted(true);     //show percentage
         setForeground(COLOR_BAR_FG_GOOD);
         setBackground(COLOR_BAR_BG);
         setBorder(BorderFactory.createLineBorder(black, 1, true));
@@ -40,6 +40,7 @@ public class NeedBar extends JProgressBar implements Components, Globals, Change
         else if(this.getValue() <= 10) setForeground(COLOR_BAR_FG_WORSE);
     }
 
+    //starts the Timer for the NeedBars, so they loose percentage over Time
     private void startTimer(){
         //loosing percentage over time
         timer = new Timer(FAST, new ActionListener(){
@@ -48,7 +49,6 @@ public class NeedBar extends JProgressBar implements Components, Globals, Change
             }
         });
         timer.start();
-        //barSpeed(SLOW);  // for testing different speeds
     }
 
     // changes speed of the decay of the bars
