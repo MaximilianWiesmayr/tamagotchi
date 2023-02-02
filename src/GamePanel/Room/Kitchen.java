@@ -102,7 +102,7 @@ public class Kitchen extends Room implements Globals, Components, ActionListener
     @Override
     public void mouseReleased(MouseEvent e) {
        
-        if(playing && dragged && creature.getMouth().contains(e.getPoint())){   //checks if the cookie was release above the mouth of the creature
+        if(playing && dragged && creature.getMouth().contains(e.getPoint())){   //checks if the cookie was released above the mouth of the creature
             eatenCookies++;
             food = new Food();
             statusPanel.eatBar.gainPercentage(2);
