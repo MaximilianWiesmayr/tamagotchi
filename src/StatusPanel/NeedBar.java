@@ -70,7 +70,7 @@ public class NeedBar extends JProgressBar implements Components, Globals, Change
     }
 
     public void gainPercentage(int n){
-        setValue(getValue()+n);
+        setValue(getValue()+(n*3));
     }
 
     public void setPercentage(int n) {

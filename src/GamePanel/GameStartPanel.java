@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 
+
 public class GameStartPanel extends JPanel implements Globals, Components {
     JTextArea descriptionArea;
     JButton startStopButton;
@@ -43,7 +44,11 @@ public class GameStartPanel extends JPanel implements Globals, Components {
         if(Objects.equals(startStopButton.getText(), "Stop")){
             this.room.stopGame();
         }
+        statusPanel.cleanBar.setBarSpeed(STOP);
+        statusPanel.exerciseBar.setBarSpeed(STOP);
+        statusPanel.eatBar.setBarSpeed(STOP);
         startStopButton.setText("try revive");
+        descriptionArea.setVisible(false);
         this.room.creature.setAppearance(3, true);
         this.room.repaint();
     }
@@ -52,10 +57,15 @@ public class GameStartPanel extends JPanel implements Globals, Components {
         if((int)(Math.random() * chance) < REVIVECHANCE) {
             chance++;
             startStopButton.setText("Start");
+            descriptionArea.setVisible(true);
             statusPanel.cleanBar.setPercentage(100);
             statusPanel.exerciseBar.setPercentage(100);
             statusPanel.eatBar.setPercentage(100);
-            this.room.creature.setAppearance(0, true);
+            if(this.room.getClass().toString().contains("Outdoor")){
+                this.room.creature.setAppearance(2, true);
+            } else {
+                this.room.creature.setAppearance(0, true);
+            }
             changeUIAccesability(true, FAST);
             this.room.repaint();
         } else {
@@ -67,6 +77,7 @@ public class GameStartPanel extends JPanel implements Globals, Components {
             this.room.scoreLabel.setVisible(false);
             this.setVisible(false);
             bottomPanel.setVisible(false);
+
             this.room.repaint();
         }
     }
@@ -74,19 +85,27 @@ public class GameStartPanel extends JPanel implements Globals, Components {
     private void stopGameOfCurrRoom() {
         this.room.stopGame();
         startStopButton.setText("Start");
+        descriptionArea.setVisible(true);
         changeUIAccesability(true, FAST);
     }
 
     private void startGameOfCurrRoom() {
         changeUIAccesability(false, SLOW);
         startStopButton.setText("Stop");
+        descriptionArea.setVisible(false);
         this.room.startGame();
     }
 
-    private void changeUIAccesability(boolean enable, int speed){
-        bottomPanel.bathroomButton.setEnabled(enable);
-        bottomPanel.outdoorButton.setEnabled(enable);
-        bottomPanel.kitchenButton.setEnabled(enable);
+    private void changeUIAccesability(boolean mouseListener, int speed){
+        if(!mouseListener) {
+            bottomPanel.bathroomButton.removeMouseListener(bottomPanel.bathroomButton);
+            bottomPanel.outdoorButton.removeMouseListener(bottomPanel.outdoorButton);
+            bottomPanel.kitchenButton.removeMouseListener(bottomPanel.kitchenButton);
+        }else {
+            bottomPanel.bathroomButton.addMouseListener(bottomPanel.bathroomButton);
+            bottomPanel.outdoorButton.addMouseListener(bottomPanel.outdoorButton);
+            bottomPanel.kitchenButton.addMouseListener(bottomPanel.kitchenButton);
+        }
         statusPanel.cleanBar.setBarSpeed(speed);
         statusPanel.exerciseBar.setBarSpeed(speed);
         statusPanel.eatBar.setBarSpeed(speed);

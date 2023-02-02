@@ -32,8 +32,8 @@ public interface Globals {
             " Damit dein Tierchen auch etwas Bewegung bekommt.";
 
     //NeedBar speeds
-    int SLOW = 1000;
-    int FAST = 20;
+    int SLOW = 1500;
+    int FAST = 1000;
     int STOP = 0;
 
     //Revive Chance

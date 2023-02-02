@@ -142,14 +142,14 @@ public class Outdoor extends Room implements Globals, Components, KeyListener, A
             isRight = false; // Change direction to left
             this.completedLaps++; // add lap
             this.lapLabel.setText("Completed Laps: " + this.completedLaps); // Update Label
-            statusPanel.exerciseBar.gainPercentage(10); // Add to the Excercise Bar
+            statusPanel.exerciseBar.gainPercentage(5); // Add to the Excercise Bar
         }
         // When the Creature reaches the left window edge
         if (creature.getMinPosX() >= creature.getPosX() && !isRight) {
             isRight = true; // Change direction to right
             this.completedLaps++; // add lap
             this.lapLabel.setText("Completed Laps: " + this.completedLaps); // Update Label
-            statusPanel.exerciseBar.gainPercentage(10); // Add to the Excercise Bar
+            statusPanel.exerciseBar.gainPercentage(5); // Add to the Excercise Bar
         }
     }
 
