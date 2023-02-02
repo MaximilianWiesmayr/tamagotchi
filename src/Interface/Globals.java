@@ -32,6 +32,7 @@ public interface Globals {
             " Damit dein Tierchen auch etwas Bewegung bekommt.";
 
     //NeedBar speeds
+    //interval between bar updates in ms
     int SLOW = 1500;
     int FAST = 1000;
     int STOP = 0;
@@ -53,6 +54,11 @@ public interface Globals {
     Color COLOR_LABEL_MINIGAME_SCORE_FG = new Color(121, 85, 152);
     Color COLOR_LABEL_MINIGAME_SCORE_BG = new Color(231, 215, 246);
 
+    Color COLOR_BUTTON_ROOM = new Color(153, 222, 221);
+
+    Color COLOR_BUTTON_START = new Color(146, 232, 142);
+    Color COLOR_BUTTON_STOP = new Color(232, 166, 142);
+    Color COLOR_BUTTON_REVIVE = new Color(230, 169, 232);
 
     Color COLOR_DESCRIPTION = Color.BLACK;
     

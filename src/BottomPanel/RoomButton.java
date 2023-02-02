@@ -5,6 +5,7 @@ import Interface.Components;
 import Interface.Globals;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -17,6 +18,7 @@ public class RoomButton extends JButton implements Globals, MouseListener, Compo
         super(name);
         this.name = name;
         addMouseListener(this);
+        this.setBackground(COLOR_BUTTON_ROOM);
     }
 
     @Override

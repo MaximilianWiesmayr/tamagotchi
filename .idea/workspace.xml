@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4d8472f-5737-4c7c-9570-f7f75129a590" name="Changes" comment="fixed being able to click at the roombuttons while a game is running&#10;fixed seeing the normal nyan cat after reviving in outdoor&#10;&#10;balanced amount of percent you get for a game&#10;&#10;removed description while playing a game and when you die">
+    <list default="true" id="a4d8472f-5737-4c7c-9570-f7f75129a590" name="Changes" comment="disabled Buttons to change Rooms when creature dies&#10;&#10;added some comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GamePanel/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BottomPanel/RoomButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BottomPanel/RoomButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GamePanel/GameStartPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel/GameStartPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GamePanel/Sprite/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel/Sprite/Creature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GamePanel/Sprite/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel/Sprite/Sprite.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interface/Globals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/Globals.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StatusPanel/NeedBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StatusPanel/NeedBar.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +95,7 @@
       <workItem from="1674551848483" duration="3427000" />
       <workItem from="1674678282616" duration="12133000" />
       <workItem from="1675297964524" duration="5037000" />
-      <workItem from="1675334473287" duration="3647000" />
+      <workItem from="1675334473287" duration="6623000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1674118044572</created>
@@ -133,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675303018743</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="disabled Buttons to change Rooms when creature dies&#10;&#10;added some comments">
+      <created>1675338187951</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1675338187951</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -156,6 +162,7 @@
     <MESSAGE value="added function to change bar decay speed&#10;added function to jump to specific percentage Value for future functionalities" />
     <MESSAGE value="added deathmechanic&#10;resized outdoor backgroundimage&#10;added description" />
     <MESSAGE value="fixed being able to click at the roombuttons while a game is running&#10;fixed seeing the normal nyan cat after reviving in outdoor&#10;&#10;balanced amount of percent you get for a game&#10;&#10;removed description while playing a game and when you die" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed being able to click at the roombuttons while a game is running&#10;fixed seeing the normal nyan cat after reviving in outdoor&#10;&#10;balanced amount of percent you get for a game&#10;&#10;removed description while playing a game and when you die" />
+    <MESSAGE value="disabled Buttons to change Rooms when creature dies&#10;&#10;added some comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="disabled Buttons to change Rooms when creature dies&#10;&#10;added some comments" />
   </component>
 </project>

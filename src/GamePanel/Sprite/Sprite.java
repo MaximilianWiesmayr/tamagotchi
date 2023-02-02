@@ -25,7 +25,7 @@ public class Sprite implements Globals {
         this.height = this.image.getIconHeight();
         this.width = this.image.getIconWidth();
         this.minPosX = 0;
-        this.maxPosX = WINDOW_WIDTH - this.width;    //creature should always stay in window
+        this.maxPosX = WINDOW_WIDTH - this.width;    //sprite should always stay in window
     }
 
     public void draw(Graphics2D g){
@@ -86,7 +86,7 @@ public class Sprite implements Globals {
         //if image is changed, width height and maxPosX have to be updated
         this.height = this.image.getIconHeight();
         this.width = this.image.getIconWidth();
-        this.maxPosX = WINDOW_WIDTH - this.width;    //creature should always stay in window
+        this.maxPosX = WINDOW_WIDTH - this.width;    //sprite should always stay in window
     }
     
     public Rectangle getBounds() {

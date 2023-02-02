@@ -22,6 +22,7 @@ public class GameStartPanel extends JPanel implements Globals, Components {
     public GameStartPanel(Room room){
         this.room = room;
         startStopButton = new JButton("Start");
+        startStopButton.setBackground(COLOR_BUTTON_START);
         startStopButton.addActionListener(e -> {
             if(Objects.equals(startStopButton.getText(), "Start")){
                 startGameOfCurrRoom();
@@ -49,6 +50,7 @@ public class GameStartPanel extends JPanel implements Globals, Components {
         if((int)(Math.random() * chance) < REVIVECHANCE) {
             chance++;
             startStopButton.setText("Start");
+            startStopButton.setBackground(COLOR_BUTTON_START);
             descriptionArea.setVisible(true);
             statusPanel.cleanBar.setPercentage(100);
             statusPanel.exerciseBar.setPercentage(100);
@@ -84,6 +86,7 @@ public class GameStartPanel extends JPanel implements Globals, Components {
         }
         changeUIAccesability(false, STOP);
         startStopButton.setText("try revive");
+        startStopButton.setBackground(COLOR_BUTTON_REVIVE);
         descriptionArea.setVisible(false);
         this.room.creature.setAppearance(3, true);
         this.room.repaint();
@@ -92,6 +95,7 @@ public class GameStartPanel extends JPanel implements Globals, Components {
     private void stopGameOfCurrRoom() {
         this.room.stopGame();
         startStopButton.setText("Start");
+        startStopButton.setBackground(COLOR_BUTTON_START);
         descriptionArea.setVisible(true);
         changeUIAccesability(true, FAST);
     }
@@ -99,6 +103,7 @@ public class GameStartPanel extends JPanel implements Globals, Components {
     private void startGameOfCurrRoom() {
         changeUIAccesability(false, SLOW);
         startStopButton.setText("Stop");
+        startStopButton.setBackground(COLOR_BUTTON_STOP);
         descriptionArea.setVisible(false);
         this.room.startGame();
     }
