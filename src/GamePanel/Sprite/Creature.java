@@ -87,6 +87,8 @@ public class Creature extends Sprite implements Globals {
             case 2: // Outdoor
                 setImage(CREATURE_OUTDOOR_RIGHT);
                 break;
+            case 3:
+                setImage(CREATURE_DEAD);
             }
         } else {    //Images where creature is looking to left side
             switch (useImg) {

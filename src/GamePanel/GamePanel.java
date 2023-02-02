@@ -9,7 +9,7 @@ import javax.swing.*;
 public class GamePanel extends JPanel {
   
     private Room room;
-    private GameStartPanel gameStartPanel;
+    public GameStartPanel gameStartPanel;
 
     public GamePanel() {
         room = new Kitchen();
@@ -30,5 +30,6 @@ public class GamePanel extends JPanel {
         repaint();
         //change panel with button and description
     }
-    
+
+
 }

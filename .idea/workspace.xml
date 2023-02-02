@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4d8472f-5737-4c7c-9570-f7f75129a590" name="Changes" comment="added function to change bar decay speed&#10;added function to jump to specific percentage Value for future functionalities" />
+    <list default="true" id="a4d8472f-5737-4c7c-9570-f7f75129a590" name="Changes" comment="Added GameStartPanel class which adds a panel to start and stop a game with a description for every room&#10;&#10;if start is pressed all buttons get disabled and the decay of the NeedBars are stopped and the startGame function of the current room is called&#10;&#10;if stop is pressed everything gets reverted and the stopGame function of the current room is called">
+      <change afterPath="$PROJECT_DIR$/img/creature_dead.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/deathscreen.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/outdoor.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/outdoor.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GamePanel/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GamePanel/GameStartPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel/GameStartPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GamePanel/Room/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel/Room/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GamePanel/Sprite/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel/Sprite/Creature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GamePanel/Sprite/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel/Sprite/Food.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interface/Globals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/Globals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StatusPanel/NeedBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StatusPanel/NeedBar.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,6 +63,9 @@
       <recent name="GameScreen" />
       <recent name="" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\maxim\OneDrive\Desktop\FHSTP\UserInterfaceProgrammierung\tamagotchi\img" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -85,6 +101,7 @@
       <workItem from="1674475820002" duration="6280000" />
       <workItem from="1674551848483" duration="3427000" />
       <workItem from="1674678282616" duration="12133000" />
+      <workItem from="1675297964524" duration="2597000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1674118044572</created>

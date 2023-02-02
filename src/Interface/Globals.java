@@ -16,18 +16,28 @@ public interface Globals {
 
     String CREATURE_OUTDOOR_RIGHT = "img/creature_with_rainbow_right.png";
     String CREATURE_OUTDOOR_LEFT = "img/creature_with_rainbow_left.png";
+
+    String CREATURE_DEAD = "img/creature_dead.png";
+
+    String DEATHSCREEN = "img/deathscreen.jpg";
     
     String SRC_WATERDROP = "img/waterdrop.png";
     String SRC_FOOD = "img/food.png";
 
-    String GAMEDESCRIPTION_KITCHEN = "Kitchengame";
-    String GAMEDESCRIPTION_BATHROOM = "Bathroomgame";
-    String GAMEDESCRIPTION_OUTDOOR = "Outdoorgame";
+    String GAMEDESCRIPTION_KITCHEN = "Fütter dein Tierchen indem du die Cookies zu seinem Mund führst.                \n \n";
+    String GAMEDESCRIPTION_BATHROOM = "Wassertropfen fallen vom Duschkopf.                                                                     " +
+            "\n Versuche sie mit deinem Tierchen aufzufangen um es zu waschen.\n" +
+            " Steuern kannst du dein Tierchen mit der linken und rechten Pfeiltaste";
+    String GAMEDESCRIPTION_OUTDOOR = "Klicke so schnell wie möglich die linke und rechte Pfeiltaste hintereinander \n um von einem Ende zum Anderen zu gelangen.\n" +
+            " Damit dein Tierchen auch etwas Bewegung bekommt.";
 
     //NeedBar speeds
-    int SLOW = 2000;
-    int FAST = 1000;
+    int SLOW = 1000;
+    int FAST = 20;
     int STOP = 0;
+
+    //Revive Chance
+    int REVIVECHANCE = 1;
     
     //Fonts
     Font LABEL_FONT_STATUSPANEL = new Font("Arial", PLAIN, 12);
@@ -42,6 +52,9 @@ public interface Globals {
     //Bathroom Minigame
     Color COLOR_LABEL_MINIGAME_SCORE_FG = new Color(121, 85, 152);
     Color COLOR_LABEL_MINIGAME_SCORE_BG = new Color(231, 215, 246);
+
+
+    Color COLOR_DESCRIPTION = Color.BLACK;
     
     //Bathroom Minigame
     int CREATURE_SPEED = 5;

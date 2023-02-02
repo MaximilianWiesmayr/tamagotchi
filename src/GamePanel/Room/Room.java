@@ -12,8 +12,10 @@ import javax.swing.*;
 public abstract class Room extends JPanel implements Components {
     
     //every Room hast a creature and a background
-    protected Creature creature;
-    protected BufferedImage backgroundImage;
+    public Creature creature;
+    public BufferedImage backgroundImage;
+
+    public JLabel scoreLabel;
     
     public Room(Creature creature, String bgSrc){   
         //Create Background
@@ -28,13 +30,14 @@ public abstract class Room extends JPanel implements Components {
     
     //Returns a JLabel for displaying the score of the minigame
     protected JLabel getScoreLabel(String scoreText, int score){
-        JLabel scoreLabel = new JLabel(scoreText + score);
+        scoreLabel = new JLabel(scoreText + score);
         scoreLabel.setFont(LABEL_FONT_MINIGAME_SCORE);
         scoreLabel.setForeground(COLOR_LABEL_MINIGAME_SCORE_FG);
         scoreLabel.setBackground(COLOR_LABEL_MINIGAME_SCORE_BG);
         scoreLabel.setOpaque(true);
         return scoreLabel;
     }
+
     
     abstract public void startGame();
 

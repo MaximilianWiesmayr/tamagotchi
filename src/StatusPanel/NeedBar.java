@@ -1,5 +1,7 @@
 package StatusPanel;
 
+import GamePanel.GameStartPanel;
+import Interface.Components;
 import Interface.Globals;
 import static java.awt.Color.*;
 import java.awt.event.ActionEvent;
@@ -8,7 +10,7 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-public class NeedBar extends JProgressBar implements Globals, ChangeListener {    
+public class NeedBar extends JProgressBar implements Components, Globals, ChangeListener {
     Timer timer;
     
     public NeedBar(){
@@ -40,7 +42,7 @@ public class NeedBar extends JProgressBar implements Globals, ChangeListener {
 
     private void startTimer(){
         //loosing percentage over time
-        timer = new Timer(SLOW, new ActionListener(){
+        timer = new Timer(FAST, new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 loosePercentage(1);
             }
@@ -62,9 +64,16 @@ public class NeedBar extends JProgressBar implements Globals, ChangeListener {
     
     public void loosePercentage(int n){
         setValue(getValue()-n);     //n% are subtracted
+        if(getValue() <= 0){
+            gamePanel.gameStartPanel.creatureDied();
+        }
     }
 
     public void gainPercentage(int n){
         setValue(getValue()+n);
+    }
+
+    public void setPercentage(int n) {
+        setValue(n);
     }
 }

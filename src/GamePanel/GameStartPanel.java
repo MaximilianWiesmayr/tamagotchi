@@ -4,30 +4,33 @@ import GamePanel.Room.Room;
 import Interface.Components;
 import Interface.Globals;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.Objects;
 
 public class GameStartPanel extends JPanel implements Globals, Components {
     JTextArea descriptionArea;
     JButton startStopButton;
     Room room;
+
+    int chance = 0;
     public GameStartPanel(Room room){
         this.room = room;
         startStopButton = new JButton("Start");
-        startStopButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(Objects.equals(startStopButton.getText(), "Start")){
-                    startGameOfCurrRoom();
-                } else {
-                    stopGameOfCurrRoom();
-                }
+        startStopButton.addActionListener(e -> {
+            if(Objects.equals(startStopButton.getText(), "Start")){
+                startGameOfCurrRoom();
+            } else if(Objects.equals(startStopButton.getText(), "Stop")) {
+                stopGameOfCurrRoom();
+            } else {
+                tryReviving();
             }
         });
         descriptionArea = new JTextArea();
+        descriptionArea.setDisabledTextColor(COLOR_DESCRIPTION);
         descriptionArea.setEnabled(false);
         setDescription(room.getClass().getName());
 
@@ -36,26 +39,57 @@ public class GameStartPanel extends JPanel implements Globals, Components {
         add(startStopButton, setButtonDimensions(new GridBagConstraints()));
     }
 
+    public void creatureDied(){
+        if(Objects.equals(startStopButton.getText(), "Stop")){
+            this.room.stopGame();
+        }
+        startStopButton.setText("try revive");
+        this.room.creature.setAppearance(3, true);
+        this.room.repaint();
+    }
+
+    private void tryReviving() {
+        if((int)(Math.random() * chance) < REVIVECHANCE) {
+            chance++;
+            startStopButton.setText("Start");
+            statusPanel.cleanBar.setPercentage(100);
+            statusPanel.exerciseBar.setPercentage(100);
+            statusPanel.eatBar.setPercentage(100);
+            this.room.creature.setAppearance(0, true);
+            changeUIAccesability(true, FAST);
+            this.room.repaint();
+        } else {
+            try {
+                this.room.backgroundImage = ImageIO.read(new File(DEATHSCREEN));
+            } catch (IOException e){
+                System.out.println("Fehler beim Laden des Hintergrundbildes");
+            }
+            this.room.scoreLabel.setVisible(false);
+            this.setVisible(false);
+            bottomPanel.setVisible(false);
+            this.room.repaint();
+        }
+    }
+
     private void stopGameOfCurrRoom() {
         this.room.stopGame();
-        bottomPanel.bathroomButton.setEnabled(true);
-        bottomPanel.outdoorButton.setEnabled(true);
-        bottomPanel.kitchenButton.setEnabled(true);
-        statusPanel.cleanBar.setBarSpeed(SLOW);
-        statusPanel.exerciseBar.setBarSpeed(SLOW);
-        statusPanel.eatBar.setBarSpeed(SLOW);
         startStopButton.setText("Start");
+        changeUIAccesability(true, FAST);
     }
 
     private void startGameOfCurrRoom() {
-        bottomPanel.bathroomButton.setEnabled(false);
-        bottomPanel.outdoorButton.setEnabled(false);
-        bottomPanel.kitchenButton.setEnabled(false);
-        statusPanel.cleanBar.setBarSpeed(STOP);
-        statusPanel.exerciseBar.setBarSpeed(STOP);
-        statusPanel.eatBar.setBarSpeed(STOP);
+        changeUIAccesability(false, SLOW);
         startStopButton.setText("Stop");
         this.room.startGame();
+    }
+
+    private void changeUIAccesability(boolean enable, int speed){
+        bottomPanel.bathroomButton.setEnabled(enable);
+        bottomPanel.outdoorButton.setEnabled(enable);
+        bottomPanel.kitchenButton.setEnabled(enable);
+        statusPanel.cleanBar.setBarSpeed(speed);
+        statusPanel.exerciseBar.setBarSpeed(speed);
+        statusPanel.eatBar.setBarSpeed(speed);
     }
 
     private GridBagConstraints setButtonDimensions(GridBagConstraints constraints) {
@@ -70,8 +104,9 @@ public class GameStartPanel extends JPanel implements Globals, Components {
     }
 
     private GridBagConstraints setTextAreaDimensions(GridBagConstraints constraints) {
-        constraints.ipady = 60;
-        constraints.ipadx = 400;
+        constraints.ipady = 30;
+        constraints.ipadx = 100;
+        constraints.insets = new Insets(5,0,0,0);
         constraints.gridwidth = 2;
         constraints.gridx = 0;
         constraints.gridy = 0;

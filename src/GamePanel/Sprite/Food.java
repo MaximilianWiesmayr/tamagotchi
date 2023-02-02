@@ -16,8 +16,8 @@ public class Food extends Sprite implements Globals, Components{
     private Random rand = new Random();
     public Food() {
         super(SRC_FOOD, 200, 200);
-        this.startPosX = rand.nextInt(minPosX, maxPosX);
-        this.startPosY = rand.nextInt(minPosY, maxPosY);
+        this.startPosX = rand.nextInt(maxPosX);
+        this.startPosY = rand.nextInt(maxPosY);
         setPosX(this.startPosX);
         setPosY(this.startPosY);
 
