@@ -38,7 +38,7 @@ public class Kitchen extends Room implements Globals, Components, ActionListener
     public Kitchen() {
         super(new Creature(0, true, 230, 300), "img/kitchen.jpg");  //Creature normal right
         
-        //get a scoreLabel for number of collected waterdrops and add it to Panel
+        //get a scoreLabel for number of eaten cookies and add it to Panel
         labelCookies = getScoreLabel("Eaten Cookies: ", eatenCookies);
         add(labelCookies);
         timer = new Timer(1, this);
